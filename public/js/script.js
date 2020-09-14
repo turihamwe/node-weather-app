@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
         p1.innerHTML = "You must submit an address below."
     }
 
-    fetch("http://localhost:3000/weather?location=" + location).then((response) => {
+    fetch("/weather?location=" + location).then((response) => {
         response.json().then((data) => {
             if(data.error){
                 p1.innerHTML = data.error
