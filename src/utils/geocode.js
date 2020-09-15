@@ -11,8 +11,8 @@ const geocode = (address, callback) => {
             callback("TT: Location not provided", undefined)
         }else{
             callback(undefined, {
-                longitude: body.features[0].center[0],
                 latitude: body.features[0].center[1],
+                longitude: body.features[0].center[0],
                 location: body.features[0].place_name
             })
         }

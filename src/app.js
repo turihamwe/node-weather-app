@@ -51,13 +51,13 @@ app.get("/weather", (req, res) => {
         })
     }
     const location = req.query.location
-    geocode(location, (error, {longitude, latitude, location2} = {}) => {
+    geocode(location, (error, {longitude, latitude, location} = {}) => {
         if(error){
             return res.send({
                 error: "TT: Internal error while geocoding."
             })
         }
-        forecast(longitude, latitude, (error, {description, temperature, feelslike, location} = {}) => {
+        forecast(latitude, longitude, (error, {description, temperature, feelslike, location} = {}) => {
             if(error){
                 return res.send({
                     error: "TT: No forecast available at this time."
