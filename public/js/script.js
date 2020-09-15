@@ -8,6 +8,7 @@ const form = document.querySelector("form")
 const search = document.querySelector("input")
 const p1 = document.querySelector("#p1")
 const p2 = document.querySelector("#p2")
+const img1 = document.querySelector("#img1")
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -27,6 +28,7 @@ form.addEventListener("submit", (e) => {
             }else{
                 p1.innerHTML = data.location
                 p2.innerHTML = data.forecast
+                img1.src = data.icon
             }
         })
     })

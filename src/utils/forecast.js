@@ -10,11 +10,13 @@ const forecast = (latitude, longitude, callback) => {
         }else if(body.error){
             callback("TT: No query provided", undefined)
         }else{
+            //console.log(body.current.weather_icons[0])
             callback(undefined, {
                 description: body.current.weather_descriptions[0],
                 temperature: body.current.temperature,
                 feelslike: body.current.feelslike,
-                location: body.location.name + ", " + body.location.country
+                location: body.location.name + ", " + body.location.country,
+                icon: body.current.weather_icons[0]
             })
             // callback(undefined, "The weather is currently " + body.current.weather_descriptions[0] + ". It is currently " + body.current.temperature + " degrees and it instead feels like its " + body.current.feelslike + " degrees.")
         }

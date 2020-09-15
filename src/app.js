@@ -57,7 +57,7 @@ app.get("/weather", (req, res) => {
                 error: "TT: Internal error while geocoding."
             })
         }
-        forecast(latitude, longitude, (error, {description, temperature, feelslike, location} = {}) => {
+        forecast(latitude, longitude, (error, {description, temperature, feelslike, location, icon} = {}) => {
             if(error){
                 return res.send({
                     error: "TT: No forecast available at this time."
@@ -66,7 +66,8 @@ app.get("/weather", (req, res) => {
             
             return res.send({
                 forecast: "Forecast: The weather is currently " + description + ". It is currently " + temperature + " degrees and it instead feels like its " + feelslike + " degrees.",
-                location: location
+                location: location,
+                icon: icon
             })
         })
     })
